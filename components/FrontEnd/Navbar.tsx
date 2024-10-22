@@ -2,12 +2,11 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import Image from "next/image"; // Import Image from next/image for optimized images
+import Image from "next/image";
 
 export default function Navbar() {
   const [state, setState] = useState(false);
 
-  // Replace javascript:void(0) path with your actual paths
   const navigation = [
     { title: "Home", path: "/" },
     { title: "About", path: "/about" },
@@ -17,20 +16,20 @@ export default function Navbar() {
   return (
     <nav className="bg-white dark:bg-slate-950 dark:text-gray-300 w-full border-b md:border-0 md:static">
       <div className="items-center px-4 max-w-screen-xl mx-auto md:flex md:px-8">
-        <div
-          className="flex items-center justify-between py-3 md:py-5 md:block"
-          style={{ zIndex: 9999 }}
-        >
-          <Link href="/">
-            <Image
-              src="/Bokang.jpg" // Update this path if the image is in a different location
-              width={90} // Size of the image
-              height={90}
-              alt="Profile Image"
-              className="rounded-full object-cover" // Makes it circular
-            />
-          </Link>
+        <div className="flex justify-between items-center w-full md:w-auto">
+          <div className="w-12 h-12 overflow-hidden rounded-full mt-8">
+            <Link href="/">
+              <Image
+                src="/Bokang.jpg" // Update this path if the image is in a different location
+                width={50} // Size of the image
+                height={50}
+                alt="Profile Image"
+                className="object-cover" // Makes it circular
+              />
+            </Link>
+          </div>
 
+          {/* Hamburger Button */}
           <div className="md:hidden">
             <button
               className="text-gray-400 outline-none p-2 rounded-md focus:border-gray-400 focus:border"
@@ -69,6 +68,7 @@ export default function Navbar() {
           </div>
         </div>
 
+        {/* Navigation Links */}
         <div
           className={`flex-1 justify-self-center pb-3 mt-8 md:block md:pb-0 md:mt-0 ${
             state ? "block" : "hidden"
@@ -79,7 +79,6 @@ export default function Navbar() {
               <li
                 key={idx}
                 className="dark:text-gray-400 text-gray-800 hover:text-indigo-600"
-                style={{ zIndex: 9999 }}
               >
                 <Link href={item.path}>{item.title}</Link>
               </li>
