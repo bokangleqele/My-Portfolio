@@ -42,13 +42,13 @@
 // }
 
 
-'use client'
 
-import { useState } from "react"
+
+import React from "react"
 
 export default function Hero()  {
 
-    const [state, setState] = useState(false)
+    
 
     return (
         <>
@@ -57,12 +57,12 @@ export default function Hero()  {
                     
                     
                 </div>
-                <ul className={`flex-1 justify-between mt-12 md:text-sm md:font-medium md:flex md:mt-0 ${state ? 'absolute inset-x-0 px-4 border-b bg-white md:border-none md:static' : 'hidden'}`}>
+                
                     <div className="items-center space-y-2 md:flex md:space-x-6 md:space-y-0 md:ml-12">
                        
                     </div>
                    
-                </ul>
+                
             </nav>
             <section className="py-18">
                 <div className="max-w-screen-xl mx-auto text-gray-600 gap-x-12 items-center justify-between overflow-hidden md:flex md:px-8">

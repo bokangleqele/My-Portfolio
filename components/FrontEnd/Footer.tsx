@@ -1,4 +1,4 @@
-'use client'
+"use client";
 
 import {Facebook, Twitter} from "lucide-react";
 import Link from "next/link";
