@@ -64,7 +64,7 @@ export default function Hero()  {
                    
                 
             </nav>
-            <section className="py-18">
+            <section className="py-18 bg-white">
                 <div className="max-w-screen-xl mx-auto text-gray-600 gap-x-12 items-center justify-between overflow-hidden md:flex md:px-8">
                     <div className="flex-none space-y-5 px-4 sm:max-w-lg md:px-0 lg:max-w-xl">
                         <h1 className="text-4xl text-gray-800 font-extrabold md:text-5xl">
@@ -76,7 +76,7 @@ export default function Hero()  {
                              I am passionate about applying scientific principles to software development.
                         </p>
                         <p>
-                            Feel free to reach out and together, let's make the world a better place.
+                            Feel free to reach out and together, let&apos;s make the world a better place.
                         </p>
                         <div className="items-center gap-x-3 space-y-3 sm:flex sm:space-y-0">
                             <a href="https://wa.me/26663325395" className="block py-2 px-4 text-center text-white font-medium bg-green-500 duration-150 hover:bg-green-600 active:bg-indigo-700 rounded-lg shadow-lg hover:shadow-none"

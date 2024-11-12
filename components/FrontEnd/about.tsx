@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export function AboutMe() {
   return (
-    <div className="flex flex-col items-center justify-start pt-10">
+    <div className="flex flex-col items-center justify-start pt-10 bg-white">
       <h1 className="text-3xl font-bold mb-4 text-gray-800">About Me</h1>
       
       {/* First Subheading */}
