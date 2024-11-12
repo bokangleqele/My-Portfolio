@@ -15,7 +15,7 @@ export function AboutMe() {
           <div
             className={cn(
               "cursor-pointer overflow-hidden relative card h-96 rounded-md shadow-xl max-w-sm mx-auto backgroundImage flex flex-col justify-between p-4",
-              "bg-[url(https://images.unsplash.com/photo-1544077960-604201fe74bc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1651&q=80)] bg-cover"
+               "bg-[url(/sourcee_640.jpg)] bg-cover"
             )}
           >
             <div className="absolute w-full h-full top-0 left-0 transition duration-300 group-hover/card:bg-black opacity-60"></div>
@@ -50,7 +50,7 @@ export function AboutMe() {
           <div
             className={cn(
               "cursor-pointer overflow-hidden relative card h-96 rounded-md shadow-xl max-w-sm mx-auto backgroundImage flex flex-col justify-between p-4",
-              "bg-[url(https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1651&q=80)] bg-cover"
+              "bg-[url(/iphone_640.jpg)] bg-cover"
             )}
           >
             <div className="absolute w-full h-full top-0 left-0 transition duration-300 group-hover/card:bg-black opacity-60"></div>
@@ -59,7 +59,7 @@ export function AboutMe() {
                 height="100"
                 width="100"
                 alt="Avatar"
-                src="/woman.png" // Replace with the second avatar image
+                src="/iphone_640.jpg" // Replace with the second avatar image
                 className="h-10 w-10 rounded-full border-2 object-cover"
               />
               <div className="flex flex-col">
@@ -89,7 +89,7 @@ export function AboutMe() {
           <div
             className={cn(
               "cursor-pointer overflow-hidden relative card h-96 rounded-md shadow-xl max-w-sm mx-auto backgroundImage flex flex-col justify-between p-4",
-              "bg-[url(https://images.unsplash.com/photo-1544077960-604201fe74bc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1651&q=80)] bg-cover"
+              "bg-[url(/computer_640.jpg)] bg-cover"
             )}
           >
             <div className="absolute w-full h-full top-0 left-0 transition duration-300 group-hover/card:bg-black opacity-60"></div>
@@ -131,7 +131,7 @@ export function AboutMe() {
           <div
             className={cn(
               "cursor-pointer overflow-hidden relative card h-96 rounded-md shadow-xl max-w-sm mx-auto backgroundImage flex flex-col justify-between p-4",
-              "bg-[url(https://images.unsplash.com/photo-1544077960-604201fe74bc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1651&q=80)] bg-cover"
+              "bg-[url(/university_640.jpg)] bg-cover"
             )}
           >
             <div className="absolute w-full h-full top-0 left-0 transition duration-300 group-hover/card:bg-black opacity-60"></div>
@@ -166,7 +166,7 @@ export function AboutMe() {
           <div
             className={cn(
               "cursor-pointer overflow-hidden relative card h-96 rounded-md shadow-xl max-w-sm mx-auto backgroundImage flex flex-col justify-between p-4",
-              "bg-[url(https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1651&q=80)] bg-cover"
+              "bg-[url(/school_640.jpg)] bg-cover"
             )}
           >
             <div className="absolute w-full h-full top-0 left-0 transition duration-300 group-hover/card:bg-black opacity-60"></div>
