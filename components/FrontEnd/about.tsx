@@ -24,7 +24,7 @@ export function AboutMe() {
                 height="100"
                 width="100"
                 alt="Avatar"
-                src="/manu.png"
+                src="/Bokang.jpg"
                 className="h-10 w-10 rounded-full border-2 object-cover"
               />
               <div className="flex flex-col">
@@ -59,7 +59,7 @@ export function AboutMe() {
                 height="100"
                 width="100"
                 alt="Avatar"
-                src="/iphone_640.jpg" // Replace with the second avatar image
+                src="/Bokang.jpg" // Replace with the second avatar image
                 className="h-10 w-10 rounded-full border-2 object-cover"
               />
               <div className="flex flex-col">
@@ -98,7 +98,7 @@ export function AboutMe() {
                 height="100"
                 width="100"
                 alt="Avatar"
-                src="/manu.png"
+                src="/Bokang.jpg"
                 className="h-10 w-10 rounded-full border-2 object-cover"
               />
               <div className="flex flex-col">
@@ -140,7 +140,7 @@ export function AboutMe() {
                 height="100"
                 width="100"
                 alt="Avatar"
-                src="/manu.png"
+                src="/Bokang.jpg"
                 className="h-10 w-10 rounded-full border-2 object-cover"
               />
               <div className="flex flex-col">
@@ -175,7 +175,7 @@ export function AboutMe() {
                 height="100"
                 width="100"
                 alt="Avatar"
-                src="/woman.png" // Replace with the second avatar image
+                src="/Bokang.jpg" // Replace with the second avatar image
                 className="h-10 w-10 rounded-full border-2 object-cover"
               />
               <div className="flex flex-col">
