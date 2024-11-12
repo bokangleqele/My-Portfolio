@@ -2,7 +2,7 @@
 
 import {Facebook, Twitter} from "lucide-react";
 import Link from "next/link";
-import { ModeToggle } from './ModeToggle';
+// import { ModeToggle } from './ModeToggle';
 
 export default function  Footer() {
 
@@ -23,20 +23,20 @@ export default function  Footer() {
                 <div className="mt-6 sm:mt-0">
                     <ul className="flex items-center space-x-4">
                     <li className="w-10 h-10 border rounded-full flex items-center justify-center">
-                                <Link href="https://www.facebook.com/profile.php?id=61554715555087">
+                                <Link href="https://www.facebook.com/bokang.leqele.5">
                                     <Facebook/>
                                 </Link>
                             </li>
 
                             <li className="w-10 h-10 border rounded-full flex items-center justify-center">
-                                <Link href="https://www.youtube.com/@Sebabatso_lesotho">
+                                <Link href="https://x.com/Left_Bkay_Left? t=Cl73eTzS9ckqeFYaXHfX7g&s=09">
                                     <Twitter/>
                                 </Link>
                             </li>
 
                         
                     </ul>
-                    <ModeToggle />
+                    {/* <ModeToggle /> */}
                 </div>
             </div>
             <style jsx>{`
