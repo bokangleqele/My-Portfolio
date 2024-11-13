@@ -73,9 +73,9 @@ const contactMethods = [
 export function ContactInfo() {
     return (
         <div className="p-10 bg-white">
-            <div className="max-w-screen-xl mx-auto px-4 dark:text-gray-800 md:px-8">
+            <div className="max-w-screen-xl mx-auto px-4 text-gray-800 md:px-8">
                 <div className="max-w-xl space-y-3 text-center mx-auto">
-                    <p className="text-3xl dark:text-gray-800 font-semibold sm:text-4xl">
+                    <p className="text-3xl text-gray-800 font-semibold sm:text-4xl">
                         Know where you can find me
                     </p>
                     <p className="mt-2">
@@ -89,7 +89,7 @@ export function ContactInfo() {
                                 <div className="flex-none text-gray-800 mb-2">
                                     {item.icon}
                                 </div>
-                                <h4 className="dark:text-gray-800 text-lg font-medium">{item.title}</h4>
+                                <h4 className="text-gray-800 text-lg font-medium">{item.title}</h4>
                                 <p className="text-base text-center">{item.contact}</p>
                             </li>
                         ))}
