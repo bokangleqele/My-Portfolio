@@ -132,7 +132,7 @@ export function ProjectInfo() {
       <h1 className="text-3xl font-bold mb-4 text-gray-800 text-center mx-auto">My Projects</h1>
       
       <ul className="max-w-2xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 items-start gap-4">
-        {cards.map((card, index) => (
+        {cards.map((card) => (
           <motion.div
             layoutId={`card-${card.title}-${id}`}
             key={card.title}
