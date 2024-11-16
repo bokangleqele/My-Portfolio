@@ -12,6 +12,9 @@ export function ProjectInfo() {
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    
+    document.body.style.backgroundColor = "white";
+
     function onKeyDown(event: KeyboardEvent) {
       if (event.key === "Escape") {
         setActive(false);
