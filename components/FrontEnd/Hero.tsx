@@ -64,10 +64,10 @@ export default function Hero()  {
                    
                 
             </nav>
-            <section className="py-18 bg-white">
-                <div className="max-w-screen-xl mx-auto text-gray-600 gap-x-12 items-center justify-between overflow-hidden md:flex md:px-8">
+            <section className="py-18 dark:bg-slate-950">
+                <div className="max-w-screen-xl mx-auto text-gray-600 dark:text-white gap-x-12 items-center justify-between overflow-hidden md:flex md:px-8">
                     <div className="flex-none space-y-5 px-4 sm:max-w-lg md:px-0 lg:max-w-xl">
-                        <h1 className="text-4xl text-gray-800 font-extrabold md:text-5xl">
+                        <h1 className="text-4xl text-gray-800  dark:text-white font-extrabold md:text-5xl">
                             Hello, I am Bokang Leqele
                         </h1>
                         <p>I am a recent graduate with a BSc in Physics and Computer Science, 
@@ -85,7 +85,7 @@ export default function Hero()  {
                             >
                                 Whatsapp
                             </a>
-                            <a href="mailto:bokangleqele7@gmail.com" className="flex items-center justify-center gap-x-2 py-2 px-4 text-gray-700 hover:text-gray-500 font-medium duration-150 active:bg-gray-100 border rounded-lg md:inline-flex">
+                            <a href="mailto:bokangleqele7@gmail.com" className="flex items-center justify-center gap-x-2 py-2 px-4 text-gray-700 dark:text-white hover:text-gray-500 dark:hover:text-blue-500  font-medium duration-150 active:bg-gray-100 border rounded-lg md:inline-flex">
                                 Email
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-5 h-5">
                                     <path fillRule="evenodd" d="M2 10a.75.75 0 01.75-.75h12.59l-2.1-1.95a.75.75 0 111.02-1.1l3.5 3.25a.75.75 0 010 1.1l-3.5 3.25a.75.75 0 11-1.02-1.1l2.1-1.95H2.75A.75.75 0 012 10z" clipRule="evenodd" />

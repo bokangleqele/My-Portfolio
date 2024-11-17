@@ -4,11 +4,11 @@ import Image from "next/image";
 
 export function AboutMe() {
   return (
-    <div className="flex flex-col items-center justify-start pt-10 bg-white">
-      <h1 className="text-3xl font-bold mb-4 text-gray-800">About Me</h1>
+    <div className="flex flex-col items-center justify-start pt-10 dark:bg-slate-950">
+      <h1 className="text-3xl font-bold mb-4 text-gray-800 dark:text-white">About Me</h1>
       
       {/* First Subheading */}
-      <h2 className="text-2xl font-semibold mb-4 text-gray-700">Skills</h2>
+      <h2 className="text-2xl font-semibold mb-4 text-gray-700 dark:text-white">Skills</h2>
       <div className="flex flex-wrap justify-center gap-4"> {/* Flex container for cards */}
         {/* First Card */}
         <div className="max-w-xs w-full group/card">
@@ -82,7 +82,7 @@ export function AboutMe() {
       </div>
 
       {/* Second Subheading */}
-      <h2 className="text-2xl font-semibold mb-4 text-gray-700 mt-10">Experiences</h2>
+      <h2 className="text-2xl font-semibold mb-4 text-gray-700 dark:text-white mt-10">Experiences</h2>
       <div className="flex flex-wrap justify-center gap-4"> {/* Flex container for cards */}
         {/* Third Card */}
         <div className="max-w-xs w-full group/card">
@@ -124,7 +124,7 @@ export function AboutMe() {
       </div>
 
       {/* Third Subheading */}
-      <h2 className="text-2xl font-semibold mb-4 mt-10 text-gray-700">Educational Background</h2>
+      <h2 className="text-2xl font-semibold mb-4 mt-10 text-gray-700 dark:text-white">Educational Background</h2>
       <div className="flex flex-wrap justify-center gap-4"> {/* Flex container for cards */}
         {/* First Card */}
         <div className="max-w-xs w-full group/card">

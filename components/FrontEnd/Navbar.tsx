@@ -15,7 +15,7 @@ export default function Navbar() {
   ];
 
   return (
-    <nav className="bg-white dark:bg-slate-950 dark:text-gray-300 w-full border-b md:border-0 md:static">
+    <nav className="bg-white dark:bg-slate-950 dark:text-white w-full border-b md:border-0 md:static">
       <div className="items-center px-4 max-w-screen-xl mx-auto md:flex md:px-8">
         <div className="flex justify-between items-center w-full md:w-auto">
           <div className="w-12 h-12 overflow-hidden rounded-full mt-8">
@@ -33,7 +33,7 @@ export default function Navbar() {
           {/* Hamburger Button */}
           <div className="md:hidden">
             <button
-              className="text-gray-400 outline-none p-2 rounded-md focus:border-gray-400 focus:border"
+              className="text-gray-400 dark:text-gray-300 outline-none p-2 rounded-md focus:border-gray-400 focus:border"
               onClick={() => setState(!state)}
             >
               {state ? (
@@ -79,7 +79,7 @@ export default function Navbar() {
             {navigation.map((item, idx) => (
               <li
                 key={idx}
-                className="dark:text-gray-400 text-gray-800 hover:text-indigo-600"
+                className="text-gray-800 dark:text-white hover:text-indigo-600 dark:hover:text-indigo-400"
               >
                 <Link href={item.path}>{item.title}</Link>
               </li>
