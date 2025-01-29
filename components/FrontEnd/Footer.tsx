@@ -1,46 +1,207 @@
 "use client";
 
-import { Facebook, Twitter } from "lucide-react";
+import { useState } from "react";
 import Link from "next/link";
-import { ModeToggle } from "./ModeToggle";
+import { menuIcons } from "./icons"; // Importing the icons
 
-export default function Footer() {
+// Define the types for the menu items
+type MenuItem = {
+  icon: React.ComponentType<React.SVGProps<SVGSVGElement>>; // Expecting a React component for the icon
+  href: string;
+};
+
+type FlowerMenuProps = {
+  menuItems: MenuItem[]; // List of menu items
+  iconColor?: string;
+  backgroundColor?: string;
+  animationDuration?: number;
+  togglerSize?: number;
+};
+
+// Menu Toggler component
+const MenuToggler = ({
+  isOpen,
+  onChange,
+  backgroundColor,
+  iconColor,
+  animationDuration,
+  togglerSize,
+  iconSize,
+}: {
+  isOpen: boolean;
+  onChange: () => void;
+  backgroundColor: string;
+  iconColor: string;
+  animationDuration: number;
+  togglerSize: number;
+  iconSize: number;
+}) => {
+  const lineHeight = iconSize * 0.1;
+  const lineWidth = iconSize * 0.8;
+  const lineSpacing = iconSize * 0.25;
+
   return (
-    <footer className="text-gray-500 bg-white dark:bg-slate-950  dark:text-white px-4 py-5 max-w-screen-xl mx-auto md:px-8">
-      <div className="max-w-lg sm:mx-auto sm:text-center">
-        <p className="leading-relaxed mt-2 text-[15px]">
-          Website solely built by Bokang Leqele.
-        </p>
-      </div>
+    <>
+      <input
+        id="menu-toggler"
+        type="checkbox"
+        checked={isOpen}
+        onChange={onChange}
+        className="absolute inset-0 z-10 m-auto cursor-pointer opacity-0"
+        style={{ width: togglerSize, height: togglerSize }}
+      />
+      <label
+        htmlFor="menu-toggler"
+        className="absolute inset-0 z-20 m-auto flex cursor-pointer items-center justify-center rounded-full transition-all"
+        style={{
+          backgroundColor,
+          color: iconColor,
+          transitionDuration: `${animationDuration}ms`,
+          width: togglerSize,
+          height: togglerSize,
+        }}
+      >
+        <span
+          className="relative flex flex-col items-center justify-center"
+          style={{ width: iconSize, height: iconSize }}
+        >
+          {[0, 1, 2].map((i) => (
+            <span
+              key={i}
+              className={`absolute bg-current transition-all ${
+                isOpen && i === 0
+                  ? "opacity-0"
+                  : isOpen
+                  ? `${i === 1 ? "rotate-45" : "-rotate-45"}`
+                  : ""
+              }`}
+              style={{
+                transitionDuration: `${animationDuration}ms`,
+                width: lineWidth,
+                height: lineHeight,
+                top: isOpen
+                  ? `calc(50% - ${lineHeight / 2}px)`
+                  : `calc(50% + ${(i - 1) * lineSpacing}px - ${lineHeight / 2}px)`,
+              }}
+            />
+          ))}
+        </span>
+      </label>
+    </>
+  );
+};
 
-      <div className="mt-8 items-center justify-between sm:flex">
-        <div className="mt-4 sm:mt-0">
-          &copy; 2024 All rights reserved.
-        </div>
-        <div className="mt-6 sm:mt-0 flex items-center space-x-6">
-          <ul className="flex items-center space-x-4">
-            <li className="w-10 h-10 border rounded-full flex items-center justify-center">
-              <Link href="https://www.facebook.com/bokang.leqele.5">
-                <Facebook />
-              </Link>
-            </li>
-            <li className="w-10 h-10 border rounded-full flex items-center justify-center">
-              <Link href="https://x.com/Left_Bkay_Left?t=Cl73eTzS9ckqeFYaXHfX7g&s=09">
-                <Twitter />
-              </Link>
-            </li>
-          </ul>
-          {/* Theme Toggle */}
-          <ModeToggle />
-        </div>
-      </div>
-      <style jsx>{`
-        .svg-icon path,
-        .svg-icon polygon,
-        .svg-icon rect {
-          fill: currentColor;
-        }
-      `}</style>
-    </footer>
+// Menu Item component
+const MenuItem = ({
+  item,
+  index,
+  isOpen,
+  iconColor,
+  backgroundColor,
+  animationDuration,
+  itemCount,
+  itemSize,
+  iconSize,
+}: {
+  item: MenuItem;
+  index: number;
+  isOpen: boolean;
+  iconColor: string;
+  backgroundColor: string;
+  animationDuration: number;
+  itemCount: number;
+  itemSize: number;
+  iconSize: number;
+}) => {
+  const Icon = item.icon; // Get the Icon component passed in
+
+  return (
+    <li
+      className={`absolute inset-0 m-auto transition-all ${isOpen ? "opacity-100" : "opacity-0"}`}
+      style={{
+        width: itemSize,
+        height: itemSize,
+        transform: isOpen
+          ? `rotate(${(270 / (itemCount - 1)) * index - 90}deg) translateX(-${itemSize + 30}px)`
+          : "none",
+        transitionDuration: `${animationDuration}ms`,
+      }}
+    >
+      <Link
+        href={item.href}
+        target="_blank"
+        rel="noopener noreferrer"
+        className={`flex h-full w-full items-center justify-center rounded-full opacity-60 transition-all duration-100 ${
+          isOpen ? "pointer-events-auto" : "pointer-events-none"
+        } group hover:scale-125 hover:opacity-100`}
+        style={{
+          backgroundColor,
+          color: iconColor,
+          transform: `rotate(-${(360 / itemCount) * index}deg)`,
+          transitionDuration: `${animationDuration}ms`,
+        }}
+      >
+        <Icon
+          className="transition-transform duration-200 group-hover:scale-125"
+          style={{ width: iconSize, height: iconSize }}
+        />
+      </Link>
+    </li>
+  );
+};
+
+// FlowerMenu component
+export default function FlowerMenu({
+  menuItems,
+  iconColor = "white",
+  backgroundColor = "rgba(255, 255, 255, 0.2)",
+  animationDuration = 500,
+  togglerSize = 40,
+}: FlowerMenuProps) {
+  const [isOpen, setIsOpen] = useState(false);
+  const itemCount = (menuItems || []).length;
+
+  const itemSize = togglerSize * 2;
+  const iconSize = Math.max(24, Math.floor(togglerSize * 0.6));
+
+  // Define your menu items
+ const items: MenuItem[] = [
+  { icon: menuIcons[0].icon, href: "https://wa.me/26663325395"  }, 
+  { icon: menuIcons[1].icon, href: "https://github.com/bokangleqele" },
+  { icon: menuIcons[2].icon, href: "https://www.linkedin.com/in/bokang-leqele-03a1882b1/" },
+  { icon: menuIcons[3].icon, href: "https://www.facebook.com/bokang.leqele.5" },
+  
+];
+
+  return (
+       <nav
+      className="relative min-h-64 w-full sm:w-[35vw] sm:h-[8vh] h-auto flex justify-center items-center"
+    >
+      <MenuToggler
+        isOpen={isOpen}
+        onChange={() => setIsOpen(!isOpen)}
+        backgroundColor={backgroundColor}
+        iconColor={iconColor}
+        animationDuration={animationDuration}
+        togglerSize={togglerSize}
+        iconSize={iconSize}
+      />
+      <ul className="absolute inset-0 m-0 h-full w-full list-none p-0">
+        {(items || []).map((item, index) => (
+          <MenuItem
+            key={index}
+            item={item}
+            index={index}
+            isOpen={isOpen}
+            iconColor={iconColor}
+            backgroundColor={backgroundColor}
+            animationDuration={animationDuration}
+            itemCount={itemCount}
+            itemSize={itemSize}
+            iconSize={iconSize}
+          />
+        ))}
+      </ul>
+    </nav>
   );
 }
