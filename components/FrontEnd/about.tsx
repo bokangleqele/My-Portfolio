@@ -1,5 +1,5 @@
 import { cn } from "@/lib/utils";
-import image from "./software.jpg";
+
 
 interface FlipCardProps extends React.HTMLAttributes<HTMLDivElement> {
   image: string;
