@@ -1,201 +1,125 @@
-"use client";
 import { cn } from "@/lib/utils";
-import Image from "next/image";
+import image from "./software.jpg";
 
-export function AboutMe() {
+interface FlipCardProps extends React.HTMLAttributes<HTMLDivElement> {
+  image: string;
+  title: string;
+  description: string;
+  subtitle?: string;
+  rotate?: "x" | "y";
+}
+
+export default function AboutMe({
+  image,
+  title,
+  description,
+  subtitle,
+  rotate = "y",
+  className,
+  ...props
+}: FlipCardProps) {
+  const rotationClass = {
+    x: ["group-hover:[transform:rotateX(180deg)]", "[transform:rotateX(180deg)]"],
+    y: ["group-hover:[transform:rotateY(180deg)]", "[transform:rotateY(180deg)]"],
+  };
+  const self = rotationClass[rotate];
+
   return (
-    <div className="flex flex-col items-center justify-start pt-10 dark:bg-slate-950">
-      <h1 className="text-3xl font-bold mb-4 text-gray-800 dark:text-white">About Me</h1>
-      
-      {/* First Subheading */}
-      <h2 className="text-2xl font-semibold mb-4 text-gray-700 dark:text-white">Skills</h2>
-      <div className="flex flex-wrap justify-center gap-4"> {/* Flex container for cards */}
-        {/* First Card */}
-        <div className="max-w-xs w-full group/card">
-          <div
-            className={cn(
-              "cursor-pointer overflow-hidden relative card h-96 rounded-md shadow-xl max-w-sm mx-auto backgroundImage flex flex-col justify-between p-4",
-               "bg-[url(/sourcee_640.jpg)] bg-cover"
-            )}
-          >
-            <div className="absolute w-full h-full top-0 left-0 transition duration-300 group-hover/card:bg-black opacity-60"></div>
-            <div className="flex flex-row items-center space-x-4 z-10">
-              <Image
-                height="100"
-                width="100"
-                alt="Avatar"
-                src="/Bokang.jpg"
-                className="h-10 w-10 rounded-full border-2 object-cover"
-              />
-              <div className="flex flex-col">
-                <p className="font-normal text-base text-gray-50 relative z-10">
-                  Bokang Leqele
-                </p>
-                <p className="text-sm text-gray-400">Front end Developer</p>
-              </div>
-            </div>
-            <div className="text content">
-              <h1 className="font-bold text-xl md:text-2xl text-gray-50 relative z-10">
-                Web Development
-              </h1>
-              <p className="font-normal text-sm text-gray-50 relative z-10 my-4">
-               Proficient in HTML, CSS, JavaScript, React, Next.js, Typescript and morden frameworks
-              </p>
-            </div>
-          </div>
+    <div className="flex flex-col items-center justify-center min-h-screen px-4">
+      {/* Header Section */}
+      <div className="text-center mb-6">
+        <h1 className="text-3xl font-bold text-indigo-600">Skills</h1>
+      </div>
+
+      {/* Flex Container for Cards */}
+      <div className="flex flex-wrap justify-center gap-6 mb-8">
+        {/* Flip Card 1 */}
+        {[{
+          title: "Web Development",
+          image: "/software.jpg",
+          subtitle:"Front End developer",
+          description: "Proficient in HTML, CSS, JavaScript, React, and modern frameworks. Skilled in building responsive, user-friendly websites with a focus on performance and accessibility.",
+        },
+        {
+          title: "UI/UX Designer",
+          image: "/web2.jpg",
+          subtitle:"Figma designer",
+          description: "A creative UI/UX designer proficient in Figma, specializing in crafting visually appealing and user-friendly designs.",
+        }, {
+          title: "Mobile Application",
+          subtitle:"Mobile app developer",
+          image: "/iphone_640.jpg",
+          description: "React Native and Expo Go developer, specializing in cross-platform mobile app development.",
+        }].map((card, index) => (
+          <FlipCard key={index} {...card} rotate={rotate} className={className} {...props} />
+        ))}
+      </div>
+
+      {/* Experience Section */}
+      <SectionHeader title="Experience" />
+      <FlipCard
+        title="Software Engineer"
+        subtitle="Aug 2024 - Present"
+        image="/computer_640.jpg"
+        description="Responsibilities include developing user-friendly websites and collaborating with teammates using version control."
+        rotate={rotate}
+        className={className}
+        {...props}
+      />
+
+      {/* Educational Background */}
+      <SectionHeader title="Educational Background" />
+      <div className="flex flex-wrap justify-center gap-6 mb-8">
+        {[{
+          title: "BSc Physics & Computer Science",
+          subtitle: "2020 - 2024",
+          image: "/varsity.jpg",
+          description: "Double major in physics and computer science. During my final year project in physics, I studied correlation between energy bandgap and dielectric constant of semiconductor materials at a nanoscale.",
+        }, {
+          title: "LGCSE",
+          subtitle: "2015 - 2019",
+          image: "/school_640.jpg",
+          description: "Successfully completed the LGCSE certificate. Having also obtained the ICT certificate.",
+        }].map((card, index) => (
+          <FlipCard key={index} {...card} rotate={rotate} className={className} {...props} />
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function FlipCard({ image, title, subtitle, description, rotate, className, ...props }: FlipCardProps) {
+  const rotationClass = {
+    x: ["group-hover:[transform:rotateX(180deg)]", "[transform:rotateX(180deg)]"],
+    y: ["group-hover:[transform:rotateY(180deg)]", "[transform:rotateY(180deg)]"],
+  };
+  const self = rotationClass[rotate || "y"];
+
+  return (
+    <div className={cn("group h-72 w-56 [perspective:1000px]", className)} {...props}>
+      <div className={cn("relative h-full rounded-2xl transition-all duration-500 [transform-style:preserve-3d]", self[0])}>
+        {/* Front */}
+        <div className="absolute h-full w-full [backface-visibility:hidden]">
+          <img src={image} alt="image" className="h-full w-full rounded-2xl object-cover shadow-2xl shadow-black/40" />
+          <div className="absolute bottom-4 left-4 text-xl font-bold text-white">{title}</div>
         </div>
 
-        {/* Second Card */}
-        <div className="max-w-xs w-full group/card">
-          <div
-            className={cn(
-              "cursor-pointer overflow-hidden relative card h-96 rounded-md shadow-xl max-w-sm mx-auto backgroundImage flex flex-col justify-between p-4",
-              "bg-[url(/iphone_640.jpg)] bg-cover"
-            )}
-          >
-            <div className="absolute w-full h-full top-0 left-0 transition duration-300 group-hover/card:bg-black opacity-60"></div>
-            <div className="flex flex-row items-center space-x-4 z-10">
-              <Image
-                height="100"
-                width="100"
-                alt="Avatar"
-                src="/Bokang.jpg" // Replace with the second avatar image
-                className="h-10 w-10 rounded-full border-2 object-cover"
-              />
-              <div className="flex flex-col">
-                <p className="font-normal text-base text-gray-50 relative z-10">
-                  Bokang Leqele
-                </p>
-                <p className="text-sm text-gray-400">Front end Developer</p>
-              </div>
-            </div>
-            <div className=" text content">
-              <h1 className="font-bold text-xl md:text-2xl text-gray-50 relative z-10">
-                Mobile Application
-              </h1>
-              <p className="font-normal text-sm text-gray-50 relative z-10 my-4">
-                Confident with using React Native and Expo go App.
-              </p>
-            </div>
+        {/* Back */}
+        <div className={cn("absolute h-full w-full rounded-2xl bg-black/80 p-4 text-slate-200 [backface-visibility:hidden]", self[1])}>
+          <div className="flex min-h-full flex-col gap-2">
+            <h1 className="text-xl font-bold text-white">{subtitle}</h1>
+            <p className="mt-1 border-t border-t-gray-200 py-4 text-base font-medium leading-normal text-gray-100">{description}</p>
           </div>
         </div>
       </div>
+    </div>
+  );
+}
 
-      {/* Second Subheading */}
-      <h2 className="text-2xl font-semibold mb-4 text-gray-700 dark:text-white mt-10">Experiences</h2>
-      <div className="flex flex-wrap justify-center gap-4"> {/* Flex container for cards */}
-        {/* Third Card */}
-        <div className="max-w-xs w-full group/card">
-          <div
-            className={cn(
-              "cursor-pointer overflow-hidden relative card h-96 rounded-md shadow-xl max-w-sm mx-auto backgroundImage flex flex-col justify-between p-4",
-              "bg-[url(/computer_640.jpg)] bg-cover"
-            )}
-          >
-            <div className="absolute w-full h-full top-0 left-0 transition duration-300 group-hover/card:bg-black opacity-60"></div>
-            <div className="flex flex-row items-center space-x-4 z-10">
-              <Image
-                height="100"
-                width="100"
-                alt="Avatar"
-                src="/Bokang.jpg"
-                className="h-10 w-10 rounded-full border-2 object-cover"
-              />
-              <div className="flex flex-col">
-                <p className="font-normal text-base text-gray-50 relative z-10">
-                  Bokang Leqele
-                </p>
-                <p className="text-sm text-gray-400">Software Engineer</p>
-              </div>
-            </div>
-            <div className="text content">
-              <h1 className="font-bold text-xl md:text-2xl text-gray-50 relative z-10">
-                Software Engineer
-              </h1>
-              <p className="font-normal text-sm text-gray-50 relative z-10 my-4">
-              Currently a software engineer intern at Nucleus Pty Ltd, Maseru, Lesotho
-              </p>
-            </div>
-          </div>
-        </div>
-
-        {/* Fourth Card */}
-        
-      </div>
-
-      {/* Third Subheading */}
-      <h2 className="text-2xl font-semibold mb-4 mt-10 text-gray-700 dark:text-white">Educational Background</h2>
-      <div className="flex flex-wrap justify-center gap-4"> {/* Flex container for cards */}
-        {/* First Card */}
-        <div className="max-w-xs w-full group/card">
-          <div
-            className={cn(
-              "cursor-pointer overflow-hidden relative card h-96 rounded-md shadow-xl max-w-sm mx-auto backgroundImage flex flex-col justify-between p-4",
-              "bg-[url(/university_640.jpg)] bg-cover"
-            )}
-          >
-            <div className="absolute w-full h-full top-0 left-0 transition duration-300 group-hover/card:bg-black opacity-60"></div>
-            <div className="flex flex-row items-center space-x-4 z-10">
-              <Image
-                height="100"
-                width="100"
-                alt="Avatar"
-                src="/Bokang.jpg"
-                className="h-10 w-10 rounded-full border-2 object-cover"
-              />
-              <div className="flex flex-col">
-                <p className="font-normal text-base text-gray-50 relative z-10">
-                  Bokang Leqele
-                </p>
-                <p className="text-sm text-gray-400">Bsc Physics & Computer science</p>
-              </div>
-            </div>
-            <div className="text content">
-              <h1 className="font-bold text-xl md:text-2xl text-gray-50 relative z-10">
-                Bsc Physics & Computer Science
-              </h1>
-              <p className="font-normal text-sm text-gray-50 relative z-10 my-4">
-                2024: Obtained a degree in Physics & Computer Science
-              </p>
-            </div>
-          </div>
-        </div>
-
-        {/* Second Card */}
-        <div className="max-w-xs w-full group/card">
-          <div
-            className={cn(
-              "cursor-pointer overflow-hidden relative card h-96 rounded-md shadow-xl max-w-sm mx-auto backgroundImage flex flex-col justify-between p-4",
-              "bg-[url(/school_640.jpg)] bg-cover"
-            )}
-          >
-            <div className="absolute w-full h-full top-0 left-0 transition duration-300 group-hover/card:bg-black opacity-60"></div>
-            <div className="flex flex-row items-center space-x-4 z-10">
-              <Image
-                height="100"
-                width="100"
-                alt="Avatar"
-                src="/Bokang.jpg" // Replace with the second avatar image
-                className="h-10 w-10 rounded-full border-2 object-cover"
-              />
-              <div className="flex flex-col">
-                <p className="font-normal text-base text-gray-50 relative z-10">
-                  Bokang Leqele
-                </p>
-                <p className="text-sm text-gray-400">LGCSE</p>
-              </div>
-            </div>
-            <div className="text content">
-              <h1 className="font-bold text-xl md:text-2xl text-gray-50 relative z-10">
-                LGCSE
-              </h1>
-              <p className="font-normal text-sm text-gray-50 relative z-10 my-4">
-                2019: Successfully completed Lesotho General Certificate of Secondary Education
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
+function SectionHeader({ title }: { title: string }) {
+  return (
+    <div className="text-center mt-8 mb-4">
+      <h1 className="text-3xl font-bold text-indigo-600">{title}</h1>
     </div>
   );
 }
