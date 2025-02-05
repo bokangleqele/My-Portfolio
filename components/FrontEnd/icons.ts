@@ -1,5 +1,5 @@
 // icons.ts
-import { FaHome, FaUser, FaCog, FaWhatsapp,FaGithub,FaTwitter, FaVoicemail, FaLinkedin, FaEnvelope } from "react-icons/fa";  // Importing icons from react-icons library
+import {FaWhatsapp,FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";  // Importing icons from react-icons library
 
 export const menuIcons = [
   {
@@ -17,15 +17,6 @@ export const menuIcons = [
   {
     icon: FaEnvelope,
     href: "mailto:bokangleqele7@gmail.com",
-  },
-  {
-    icon: FaEnvelope,
-    href: "mailto:bokangleqele7@gmail.com",
-  },
-  {
-    icon: FaEnvelope,
-    href: "mailto:bokangleqele7@gmail.com",
-  }
-      
+  }     
   
 ];

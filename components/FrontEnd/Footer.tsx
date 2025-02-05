@@ -3,6 +3,8 @@
 import { useState } from "react";
 import Link from "next/link";
 import { menuIcons } from "./icons"; // Importing the icons
+import {FaCopyright } from "react-icons/fa";
+
 
 // Define the types for the menu items
 type MenuItem = {
@@ -177,6 +179,12 @@ export default function FlowerMenu({
        <nav
       className="relative min-h-64 w-full sm:w-[35vw] sm:h-[8vh] h-auto flex justify-center items-center"
     >
+
+     {/* Centered Text */}
+     <div className="absolute top-1/2 right-0 transform -translate-y-1/2 translate-x-80 text-white sm:block hidden">
+  Website Solely Built by Bokang Leqele
+</div>
+
       <MenuToggler
         isOpen={isOpen}
         onChange={() => setIsOpen(!isOpen)}
@@ -202,6 +210,13 @@ export default function FlowerMenu({
           />
         ))}
       </ul>
+       {/* Centered Text */}
+       <div className="absolute top-1/2 right-0 transform -translate-y-1/2 translate-x-[800px] text-white sm:block hidden">
+  <span className="flex items-center">
+    <FaCopyright className="mr-2" /> {/* Copyright icon */}
+    All rights reserved
+  </span>
+</div>
     </nav>
   );
 }
