@@ -169,7 +169,7 @@ export default function FlowerMenu({
   { icon: menuIcons[0].icon, href: "https://wa.me/26663325395"  }, 
   { icon: menuIcons[1].icon, href: "https://github.com/bokangleqele" },
   { icon: menuIcons[2].icon, href: "https://www.linkedin.com/in/bokang-leqele-03a1882b1/" },
-  { icon: menuIcons[3].icon, href: "https://www.facebook.com/bokang.leqele.5" },
+  { icon: menuIcons[3].icon, href: "mailto:bokangleqele7@gmail.com" },
   
 ];
 
