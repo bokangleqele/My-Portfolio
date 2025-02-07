@@ -167,23 +167,19 @@ export default function FlowerMenu({
   const iconSize = Math.max(24, Math.floor(togglerSize * 0.6));
 
   // Define your menu items
- const items: MenuItem[] = [
-  { icon: menuIcons[0].icon, href: "https://wa.me/26663325395"  }, 
-  { icon: menuIcons[1].icon, href: "https://github.com/bokangleqele" },
-  { icon: menuIcons[2].icon, href: "https://www.linkedin.com/in/bokang-leqele-03a1882b1/" },
-  { icon: menuIcons[3].icon, href: "mailto:bokangleqele7@gmail.com" },
-  
-];
+  const items: MenuItem[] = [
+    { icon: menuIcons[0].icon, href: "https://wa.me/26663325395" },
+    { icon: menuIcons[1].icon, href: "https://github.com/bokangleqele" },
+    { icon: menuIcons[2].icon, href: "https://www.linkedin.com/in/bokang-leqele-03a1882b1/" },
+    { icon: menuIcons[3].icon, href: "mailto:bokangleqele7@gmail.com" },
+  ];
 
   return (
-       <nav
-      className="relative min-h-64 w-full sm:w-[35vw] sm:h-[8vh] h-auto flex justify-center items-center"
-    >
-
-     {/* Centered Text */}
-     <div className="absolute top-1/2 right-0 transform -translate-y-1/2 translate-x-80 text-white sm:block hidden">
-  Website Solely Built by Bokang Leqele
-</div>
+    <nav className="relative min-h-64 w-full sm:w-[35vw] sm:h-[8vh] h-auto flex justify-center items-center">
+      {/* Header Text */}
+      <div className="absolute top-12 left-1/2 transform -translate-x-1/2 text-white font-bold">
+        Find me here
+      </div>
 
       <MenuToggler
         isOpen={isOpen}
@@ -210,13 +206,19 @@ export default function FlowerMenu({
           />
         ))}
       </ul>
-       {/* Centered Text */}
-       <div className="absolute top-1/2 right-0 transform -translate-y-1/2 translate-x-[800px] text-white sm:block hidden">
-  <span className="flex items-center">
-    <FaCopyright className="mr-2" /> {/* Copyright icon */}
-    All rights reserved
-  </span>
-</div>
+
+      {/* Centered Text */}
+      <div className="absolute top-1/2 right-0 transform -translate-y-1/2 translate-x-80 text-white sm:block hidden">
+        Website Solely Built by Bokang Leqele
+      </div>
+
+      {/* Copyright Text */}
+      <div className="absolute top-1/2 right-0 transform -translate-y-1/2 translate-x-[800px] text-white sm:block hidden">
+        <span className="flex items-center">
+          <FaCopyright className="mr-2" />
+          All rights reserved
+        </span>
+      </div>
     </nav>
   );
 }

@@ -48,9 +48,12 @@ import OrbitingItems from "@/components/FrontEnd/orbiting-items";
 import { Icons } from "@/components/FrontEnd/icons";
 
 const orbitingIcons = [
-    <Icons.gitHub key="github" className="h-6 w-6 text-white" />,
-    <Icons.twitter key="twitter" className="h-6 w-6 text-white" />,
-    <Icons.linkedIn key="linkedin" className="h-6 w-6 text-white" />,
+    <Icons.gitHub key="github" className="h-10 w-10 text-white" />,
+    <Icons.figma key="figma" className="h-10 w-10 text-white" />,
+    <Icons.linkedIn key="linkedin" className="h-10 w-10 text-white" />,
+    <Icons.html key="html" className="h-10 w-10 text-white" />,
+    <Icons.react key="react" className="h-10 w-10 text-white" />,
+    <Icons.javascript key="javascript" className="h-10 w-10 text-white" />,
   ];
   
 

@@ -94,7 +94,7 @@ export default function OrbitingItems({
       />
       <div
         className={cn(
-          "relative flex h-64 w-64 animate-[rotate-full_45s] items-center justify-center ease-linear repeat-infinite",
+          "relative flex h-96 w-96 animate-[rotate-full_45s] items-center justify-center ease-linear repeat-infinite",
           {
             "group-hover:[animation-play-state:paused]": pauseOnHover,
           },
@@ -106,7 +106,7 @@ export default function OrbitingItems({
           return (
             <div
               key={index}
-              className="absolute flex h-12 w-12 items-center justify-center rounded-full "
+              className="absolute flex h-16 w-16 items-center justify-center rounded-full "
               style={calculateItemStyle({
                 index,
                 radius,
@@ -117,6 +117,13 @@ export default function OrbitingItems({
             </div>
           );
         })}
+
+          <div
+            className={cn("absolute h-1/2 w-1/2 rounded-full border-2 border-gray-700 flex items-center justify-center", reverse)}
+          >
+            <p className="text-lg text-white">Technical Skills</p>
+          </div>
+
 
         <div
           className={cn("absolute h-1/2 w-1/2 rounded-full border-2 border-gray-700", reverse)}
