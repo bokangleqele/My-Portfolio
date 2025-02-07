@@ -1,5 +1,12 @@
 // icons.ts
 import {FaWhatsapp,FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";  // Importing icons from react-icons library
+import { FaTwitter } from "react-icons/fa6";
+
+export const Icons = {
+  gitHub: FaGithub,
+ twitter: FaTwitter,
+ linkedIn: FaLinkedin,
+};
 
 export const menuIcons = [
   {
