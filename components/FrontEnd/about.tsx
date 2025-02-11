@@ -1,6 +1,5 @@
 import { cn } from "@/lib/utils";
 
-
 interface FlipCardProps extends React.HTMLAttributes<HTMLDivElement> {
   image: string;
   title: string;
@@ -9,23 +8,14 @@ interface FlipCardProps extends React.HTMLAttributes<HTMLDivElement> {
   rotate?: "x" | "y";
 }
 
-export default function AboutMe({
-  image,
-  title,
-  description,
-  subtitle,
-  rotate = "y",
-  className,
-  ...props
-}: FlipCardProps) {
-  const rotationClass = {
-    x: ["group-hover:[transform:rotateX(180deg)]", "[transform:rotateX(180deg)]"],
-    y: ["group-hover:[transform:rotateY(180deg)]", "[transform:rotateY(180deg)]"],
-  };
-  const self = rotationClass[rotate];
+interface AboutMeProps extends React.HTMLAttributes<HTMLDivElement> {
+  rotate?: "x" | "y";
+  className?: string;
+}
 
+export default function AboutMe({ rotate = "y", className, ...props }: AboutMeProps) {
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen px-4">
+    <div className="flex flex-col items-center justify-center min-h-screen px-4" {...props}>
       {/* Header Section */}
       <div className="text-center mb-6">
         <h1 className="text-3xl font-bold text-indigo-600">Skills</h1>
@@ -33,25 +23,24 @@ export default function AboutMe({
 
       {/* Flex Container for Cards */}
       <div className="flex flex-wrap justify-center gap-6 mb-8">
-        {/* Flip Card 1 */}
         {[{
           title: "Web Development",
           image: "/software.jpg",
-          subtitle:"Front End developer",
+          subtitle: "Front End developer",
           description: "Proficient in HTML, CSS, JavaScript, React, and modern frameworks. Skilled in building responsive, user-friendly websites with a focus on performance and accessibility.",
         },
         {
           title: "UI/UX Designer",
           image: "/web2.jpg",
-          subtitle:"Figma designer",
+          subtitle: "Figma designer",
           description: "A creative UI/UX designer proficient in Figma, specializing in crafting visually appealing and user-friendly designs.",
         }, {
           title: "Mobile Application",
-          subtitle:"Mobile app developer",
+          subtitle: "Mobile app developer",
           image: "/iphone_640.jpg",
           description: "React Native and Expo Go developer, specializing in cross-platform mobile app development.",
         }].map((card, index) => (
-          <FlipCard key={index} {...card} rotate={rotate} className={className} {...props} />
+          <FlipCard key={index} {...card} rotate={rotate} className={className} />
         ))}
       </div>
 
@@ -64,7 +53,6 @@ export default function AboutMe({
         description="Responsibilities include developing user-friendly websites and collaborating with teammates using version control."
         rotate={rotate}
         className={className}
-        {...props}
       />
 
       {/* Educational Background */}
@@ -81,26 +69,26 @@ export default function AboutMe({
           image: "/school_640.jpg",
           description: "Successfully completed the LGCSE certificate. Having also obtained the ICT certificate.",
         }].map((card, index) => (
-          <FlipCard key={index} {...card} rotate={rotate} className={className} {...props} />
+          <FlipCard key={index} {...card} rotate={rotate} className={className} />
         ))}
       </div>
     </div>
   );
 }
 
-function FlipCard({ image, title, subtitle, description, rotate, className, ...props }: FlipCardProps) {
+function FlipCard({ image, title, subtitle, description, rotate = "y", className, ...props }: FlipCardProps) {
   const rotationClass = {
     x: ["group-hover:[transform:rotateX(180deg)]", "[transform:rotateX(180deg)]"],
     y: ["group-hover:[transform:rotateY(180deg)]", "[transform:rotateY(180deg)]"],
   };
-  const self = rotationClass[rotate || "y"];
+  const self = rotationClass[rotate];
 
   return (
     <div className={cn("group h-72 w-56 [perspective:1000px]", className)} {...props}>
       <div className={cn("relative h-full rounded-2xl transition-all duration-500 [transform-style:preserve-3d]", self[0])}>
         {/* Front */}
         <div className="absolute h-full w-full [backface-visibility:hidden]">
-          <img src={image} alt="image" className="h-full w-full rounded-2xl object-cover shadow-2xl shadow-black/40" />
+          <img src={image} alt={title} className="h-full w-full rounded-2xl object-cover shadow-2xl shadow-black/40" />
           <div className="absolute bottom-4 left-4 text-xl font-bold text-white">{title}</div>
         </div>
 
