@@ -4,7 +4,7 @@ import  AboutMe  from "@/components/FrontEnd/about"; // Importing the AboutMe co
 export default function About() {
   return (
     <>
-      <AboutMe image={""} title={""} description={""} /> {/* Render the AboutMe component */}
+      <AboutMe/> {/* Render the AboutMe component */}
     </>
   );
 }

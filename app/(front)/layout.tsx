@@ -8,7 +8,7 @@ export default function Layout({ children }: { children: ReactNode }) {
     <div className="bg-white dark:bg-slate-950 text-gray-900 dark:text-gray-200 min-h-screen">
       <Navbar />
       <main>{children}</main>
-      <Footer />
+      <Footer menuItems={[]} />
     </div>
   );
 }
