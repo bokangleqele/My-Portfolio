@@ -71,6 +71,11 @@ export default function AboutMe({ rotate = "y", className, ...props }: AboutMePr
           subtitle: "2015 - 2019",
           image: "/school_640.jpg",
           description: "Successfully completed the LGCSE certificate. Having also obtained the ICT certificate.",
+        }, {
+          title: "Cisco",
+          subtitle: "Feb - 2025",
+          image: "/cisco.png",
+          description: "Successfully completed introduction to data science certificate on cisco.",
         }].map((card, index) => (
           <FlipCard key={index} {...card} rotate={rotate} className={className} />
         ))}
