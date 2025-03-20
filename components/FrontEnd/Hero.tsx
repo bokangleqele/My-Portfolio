@@ -71,8 +71,7 @@ export default function Hero() {
                             Hello, I am Bokang Leqele
                         </h1>
                         <p>
-                            I am a recent graduate with a BSc in Physics and Computer Science, currently working as a software engineer intern.
-                            With a strong foundation in analytical problem-solving and programming, I am passionate about applying scientific principles to software development.
+                        Bokang Leqele is a software engineer with a background in Physics and Computer Science, specializing in React, React Native, TypeScript, and modern UI frameworks. With a strong analytical mindset and a focus on building high-performing, user-friendly applications, he thrives in collaborative environments and stays current with emerging technologies. Driven by a passion for problem-solving, Bokang is committed to continuous learning and delivering impactful solutions.
                         </p>
                         <p>Feel free to reach out and together, let&apos;s make the world a better place.</p>
                         <div className="items-center gap-x-3 space-y-3 sm:flex sm:space-y-0">

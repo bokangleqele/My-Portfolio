@@ -8,6 +8,7 @@ interface FlipCardProps extends React.HTMLAttributes<HTMLDivElement> {
   title: string;
   description: string;
   subtitle?: string;
+  secondTitle?: string;
   rotate?: "x" | "y";
 }
 
@@ -30,33 +31,58 @@ export default function AboutMe({ rotate = "y", className, ...props }: AboutMePr
           title: "Web Development",
           image: "/software.jpg",
           subtitle: "Front End developer",
-          description: "Proficient in HTML, CSS, JavaScript, React, and modern frameworks. Skilled in building responsive, user-friendly websites with a focus on performance and accessibility.",
+          description: "Proficient in HTML, CSS, JavaScript, React, and modern frameworks, with a focus on creating responsive, accessible, and high-performance websites.",
         },
         {
           title: "UI/UX Designer",
           image: "/web2.jpg",
           subtitle: "Figma designer",
-          description: "A creative UI/UX designer proficient in Figma, specializing in crafting visually appealing and user-friendly designs.",
+          description: "A skilled UI/UX designer with expertise in Figma, specializing in creating visually engaging and user-centered designs that enhance the overall user experience.",
         }, {
           title: "Mobile Application",
           subtitle: "Mobile app developer",
           image: "/iphone_640.jpg",
-          description: "React Native and Expo Go developer, specializing in cross-platform mobile app development.",
+          description: "Specialized in cross-platform mobile app development using React Native and Expo, delivering high-quality solutions for both iOS and Android platforms.",
         }].map((card, index) => (
           <FlipCard key={index} {...card} rotate={rotate} className={className} />
         ))}
       </div>
 
-      {/* Experience Section */}
-      <SectionHeader title="Experience" />
-      <FlipCard
-        title="Software Engineer"
-        subtitle="Aug 2024 - Present"
-        image="/computer_640.jpg"
-        description="Responsibilities include developing user-friendly websites and collaborating with teammates using version control."
-        rotate={rotate}
-        className={className}
-      />
+     {/* Experience Section */}
+<SectionHeader title="Experience" />
+
+<div className="flex flex-col lg:flex-row gap-6 justify-center items-center">
+  <FlipCard
+    title="Software Engineer"
+    subtitle="Aug 2024 - Jan 2025"
+    secondTitle="Nucleus Pty Ltd"
+    image="/laptopp.png"
+    description="Responsible for designing and developing intuitive, user-friendly websites while collaborating effectively with team members using version control systems."
+    rotate={rotate}
+    className={className}
+  />
+
+  <FlipCard
+    title="Software Engineer"
+    subtitle="Feb 2025 - present"
+    secondTitle="STEAMLes Robotics"
+    image="/robott.png"
+    description="Collaborated on Arduino-based projects, participated in outreach initiatives, and conducted research on emerging robotics technologies and market trends."
+    rotate={rotate}
+    className={className}
+  />
+
+<FlipCard
+    title="Member"
+    subtitle="Feb 2025 - present"
+    secondTitle="Young AI leaders | Lesotho hub"
+    image="/leader.png"
+    description="Bokang is a proud member of the Young AI Leaders | Lesotho hub, a community of innovative young minds driving the future of Artificial Intelligence. "
+    rotate={rotate}
+    className={className}
+  />
+</div>
+
 
       {/* Educational Background */}
       <SectionHeader title="Educational Background" />
@@ -65,7 +91,7 @@ export default function AboutMe({ rotate = "y", className, ...props }: AboutMePr
           title: "BSc Physics & Computer Science",
           subtitle: "2020 - 2024",
           image: "/varsity.jpg",
-          description: "Double major in physics and computer science. During my final year project in physics, I studied correlation between energy bandgap and dielectric constant of semiconductor materials at a nanoscale.",
+          description: "Double major in Physics and Computer Science, with a final year project focusing on the correlation between energy bandgap and dielectric constant of semiconductor materials at the nanoscale.",
         }, {
           title: "LGCSE",
           subtitle: "2015 - 2019",
@@ -75,7 +101,7 @@ export default function AboutMe({ rotate = "y", className, ...props }: AboutMePr
           title: "Cisco",
           subtitle: "Feb - 2025",
           image: "/cisco.png",
-          description: "Successfully completed introduction to data science certificate on cisco.",
+          description: "Completed the Introduction to Data Science certificate from Cisco.",
         }].map((card, index) => (
           <FlipCard key={index} {...card} rotate={rotate} className={className} />
         ))}
@@ -84,7 +110,7 @@ export default function AboutMe({ rotate = "y", className, ...props }: AboutMePr
   );
 }
 
-function FlipCard({ image, title, subtitle, description, rotate = "y", className, ...props }: FlipCardProps) {
+function FlipCard({ image, title, subtitle, secondTitle, description, rotate = "y", className, ...props }: FlipCardProps) {
   const rotationClass = {
     x: ["group-hover:[transform:rotateX(180deg)]", "[transform:rotateX(180deg)]"],
     y: ["group-hover:[transform:rotateY(180deg)]", "[transform:rotateY(180deg)]"],
@@ -102,6 +128,10 @@ function FlipCard({ image, title, subtitle, description, rotate = "y", className
       />
 
           <div className="absolute bottom-4 left-4 text-xl font-bold text-white">{title}</div>
+
+          <div className="absolute top-4 left-4 text-white">
+               {secondTitle && <h3 className="text-lg font-medium">{secondTitle}</h3>}
+            </div>
         </div>
 
         {/* Back */}
