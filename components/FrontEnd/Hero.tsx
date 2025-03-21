@@ -47,6 +47,28 @@ import React from "react";
 import OrbitingItems from "@/components/FrontEnd/orbiting-items";
 import { Icons } from "@/components/FrontEnd/icons";
 import { TextGenerateEffect } from "../ui/text-generate-effect";
+import { InfiniteSlider } from "./infinite-slider";
+
+interface InfiniteSliderProps {
+  children: React.ReactNode;
+  gap?: number;
+  reverse?: boolean;
+  speed?: number;
+}
+
+export const InfiniteSliderBasic = () => {
+  return (
+    <InfiniteSlider gap={24} reverse>
+      <img src='/arduino.png' alt='Chrome logo' className='h-[50px] w-auto' />
+      <img src='/github.png' alt='Strava logo' className='h-[50px] w-auto' />
+      <img src='/linked.png' alt='Strava logo' className='h-[50px] w-auto' />
+      <img src='/figma.png' alt='Strava logo' className='h-[50px] w-auto' />
+      <img src='/physics.png' alt='Strava logo' className='h-[50px] w-auto' />
+      <img src='/robot.png' alt='Strava logo' className='h-[50px] w-auto' />
+    
+    </InfiniteSlider>
+  );
+};
 
 // Define the words for the TextGenerateEffect
 const words = `Hello, I am Bokang Leqele.
@@ -69,6 +91,7 @@ const orbitingIcons = [
 export default function Hero() {
   return (
     <>
+     <InfiniteSliderBasic />
       <nav className="relative items-center pt-5 px-4 mx-auto max-w-screen-xl sm:px-8 md:flex md:space-x-6">
         <div className="flex justify-between"></div>
         <div className="items-center space-y-2 md:flex md:space-x-6 md:space-y-0 md:ml-12"></div>
