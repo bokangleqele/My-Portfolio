@@ -49,13 +49,6 @@ import { Icons } from "@/components/FrontEnd/icons";
 import { TextGenerateEffect } from "../ui/text-generate-effect";
 import { InfiniteSlider } from "./infinite-slider";
 
-interface InfiniteSliderProps {
-  children: React.ReactNode;
-  gap?: number;
-  reverse?: boolean;
-  speed?: number;
-}
-
 export const InfiniteSliderBasic = () => {
   return (
     <InfiniteSlider gap={24} reverse>
