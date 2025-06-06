@@ -48,6 +48,9 @@ import OrbitingItems from "@/components/FrontEnd/orbiting-items";
 import { Icons } from "@/components/FrontEnd/icons";
 import { TextGenerateEffect } from "../ui/text-generate-effect";
 import { InfiniteSlider } from "./infinite-slider";
+import AboutMe from "./about";
+import {ProjectInfo} from "./Projects";
+import {ContactInfo} from "./Contact";
 
 export const InfiniteSliderBasic = () => {
   return (
@@ -127,6 +130,15 @@ export default function Hero() {
             <OrbitingItems radius={40} items={orbitingIcons} />
           </div>
         </div>
+      </section>
+      <section id ="about">
+        <AboutMe />
+      </section>
+      <section id ="Projects">
+        <ProjectInfo />
+      </section>
+      <section id ="Contact">
+        <ContactInfo />
       </section>
     </>
   );
