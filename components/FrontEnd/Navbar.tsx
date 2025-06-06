@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { FloatingNav } from "../ui/floating-navbar";
 
 export default function Navbar() {
   const [state, setState] = useState(false);
@@ -15,6 +16,14 @@ export default function Navbar() {
   ];
 
   return (
+    <div className="relative  w-full">
+
+      <FloatingNav
+            navItems={navigation.map(({ title, path }) => ({
+              name: title,
+              link: path,
+            }))}
+          />
     <nav className="bg-white dark:bg-slate-950 dark:text-white w-full border-b md:border-0 md:static">
       <div className="items-center px-4 max-w-screen-xl mx-auto md:flex md:px-8">
         <div className="flex justify-between items-center w-full md:w-auto">
@@ -88,5 +97,6 @@ export default function Navbar() {
         </div>
       </div>
     </nav>
+    </div>
   );
 }
