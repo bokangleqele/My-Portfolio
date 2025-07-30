@@ -63,6 +63,17 @@ const contactMethods = [
         ),
         contact: <a href="https://github.com/bokangleqele" target="_blank" rel="noopener noreferrer " className="text-blue-500 underline hover:text-blue-700 dark:text-blue dark:hover:text-blue-700">https://github.com/bokangleqele</a>,
         title: "GitHub"
+    },
+        {
+        icon: (
+<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6 dark:text-white">
+  <path strokeLinecap="round" strokeLinejoin="round" d="M12 2v2m0 16v2m10-10h-2M4 12H2m15.07-7.07l-1.42 1.42M6.35 17.65l-1.42 1.42m0-13.72l1.42 1.42M17.65 17.65l1.42 1.42M12 6a6 6 0 016 6 6 6 0 01-6 6 6 6 0 01-6-6 6 6 0 016-6z" />
+</svg>
+
+
+        ),
+        contact: <a href="https://aiforgood.itu.int/speaker/bokang-leqele/" target="_blank" rel="noopener noreferrer " className="text-blue-500 underline hover:text-blue-700 dark:text-blue dark:hover:text-blue-700">https://aiforgood.itu.int/speaker/bokang-leqele/</a>,
+        title: "AI for Good"
     }
 ];
 
